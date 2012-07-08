@@ -105,9 +105,9 @@ def highlight_code(code, language, formatter):
     #Convert line endings to <br> tags:
     highlighted = highlighted.replace("\n","<br/>")
     #But get rid of the last <br> which throws off line numbers:
-    highlighted = "</pre></div>".join(highlighted.rsplit("</pre></div><br/>"))
+    highlighted = u"</pre></div>".join(highlighted.rsplit("</pre></div><br/>"))
     #Surround the text with newlines so markdown etc parse properly:
-    highlighted = "\n\n{0}\n\n".format(highlighted)
+    highlighted = u"\n\n{0}\n\n".format(highlighted)
     return highlighted
 
 def parse_args(args):
