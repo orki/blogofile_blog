@@ -64,6 +64,8 @@ config = HC(
         style = "murphy")
 
 def init():
+    if bf.config.plugins.blog.syntax_highlight.style:
+        config.style = bf.config.plugins.blog.syntax_highlight.style
     #This filter normally only loads pygments styles when needed.
     #This will force a particular style to get loaded at startup.
     for style in config.preload_styles:
