@@ -64,4 +64,5 @@ setup(
     install_requires=dependencies,
     entry_points={
         "blogofile.plugins": ["blogofile_blog = blogofile_blog"]},
+    zip_safe=False,
 )
