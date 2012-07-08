@@ -43,7 +43,12 @@ def init():
     config["url"] = bf.config.site.url + config["path"]
     if config.template_path:
         #Add the user's custom template path first
-        tools.add_template_dir(config.template_path)
+        if isinstance(config.template_path, str) or isinstance(config.template_path,unicode):
+            template_path = [config.template_path]
+        else:
+            template_path = config.template_path # assume iterable
+        for tp in template_path:
+            tools.add_template_dir(tp,False)
     tools.add_template_dir(os.path.join(tools.get_src_dir(),"_templates/blog"))
 
 def run():
